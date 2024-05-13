@@ -1,6 +1,6 @@
 # React Typescript Boilerplate with Tailwind CSS, DaisyUI, Clerk for Authentication, Redux Toolkit, and Global Model
 
-This is a React Boilerplate project that uses Typescript, Tailwind CSS, DaisyUI, Clerk for Authentication, Redux Toolkit, and global model.
+This is a React Boilerplate project that uses Typescript, Tailwind CSS, Flowbite, Clerk for Authentication, Redux Toolkit, and global model.
 
 ### [Live Demo](https://react-ts-tailwind-daisy-clerk-redux.vercel.app/)
 

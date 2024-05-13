@@ -1,14 +1,14 @@
 import React from "react";
 import { handleModel } from "../redux/layoutSlices/modelSlice";
 import { useDispatch } from "react-redux";
-import { SignOutButton, UserButton } from "@clerk/clerk-react";
+import { SignOutButton } from "@clerk/clerk-react";
+import { Button } from "flowbite-react";
 
 const Home = () => {
   const d = useDispatch();
   return (
     <div>
-      <button
-        className="btn"
+      <Button
         onClick={() =>
           d(
             handleModel({
@@ -19,9 +19,9 @@ const Home = () => {
           )
         }
       >
-        open modal
-      </button>
-      <UserButton />
+        Click Me
+      </Button>
+      {/* <UserButton /> */}
       <SignOutButton />
     </div>
   );

@@ -2,6 +2,8 @@ import { SignUp } from "@clerk/clerk-react";
 
 export default function SignUpPage() {
   return (
-    <SignUp />
+    <div className="flex items-center justify-center h-screen">
+      <SignUp />
+    </div>
   );
 }
