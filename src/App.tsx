@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "./App.css";
+import SignUpForm from "./components/Signup";
+import LoginForm from "./components/Signin";
+import ProtectedLayout from "./Layouts/ProtectedLayout";
+import AuthLayout from "./Layouts/AuthLayout";
+import Home from "./Pages/Home";
+import Models from "./components/modals";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import Profile from "./Pages/Profile";
 
 function App() {
+  console.log(process.env);
+  useEffect(() => {
+    document
+      .getElementsByTagName("html")[0]
+      .setAttribute("data-theme", "light");
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Models />
+        <ToastContainer />
+        <Router />
+      </BrowserRouter>
+    </>
   );
+}
+
+function Router() {
+  let element = useRoutes([
+    {
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "/signup",
+          element: <SignUpForm />,
+        },
+        { path: "/login", element: <LoginForm /> },
+      ],
+    },
+    {
+      path: "/",
+      element: <ProtectedLayout />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/profile", element: <Profile /> },
+      ],
+    },
+  ]);
+
+  return element;
 }
 
 export default App;
