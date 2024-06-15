@@ -1,11 +1,15 @@
 import React from "react";
 import { handleModel } from "../redux/layoutSlices/modelSlice";
 import { useDispatch } from "react-redux";
-import { SignOutButton } from "@clerk/clerk-react";
 import { Button } from "flowbite-react";
+import { signOut } from "firebase/auth";
+import auth from "../config/firebase";
 
 const Home = () => {
   const d = useDispatch();
+  const logout = () => {
+    signOut(auth);
+  };
   return (
     <div>
       <Button
@@ -15,14 +19,14 @@ const Home = () => {
               model: "confirmation",
               state: true,
               args: { callBack: () => console.log("call back") },
-            })
+            }),
           )
         }
       >
         Click Me
       </Button>
       {/* <UserButton /> */}
-      <SignOutButton />
+      <Button onClick={logout}>Log out</Button>
     </div>
   );
 };

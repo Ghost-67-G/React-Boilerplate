@@ -1,11 +1,6 @@
-import React from 'react';
-import Confirmation from './Confirmation'
+import React from "react";
+// import Confirmation from "./Confirmation";
 
 export default function Index() {
-
-  return (
-    <>
-      <Confirmation />
-    </>
-  )
+  return <>{/* <Confirmation /> */}</>;
 }
